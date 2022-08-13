@@ -1,0 +1,17 @@
+version: '3.3'
+
+services:
+  photo-server:
+      command: /bin/sh ./start-server.sh
+      ports:
+        - '8000:8000'
+
+      build:
+        context: .
+        dockerfile: Dockerfile
+
+      environment:
+        DJANGO_SETTINGS_MODULE: photoeditor.settings
+
+      volumes:
+        - ./:/usr/src/app
